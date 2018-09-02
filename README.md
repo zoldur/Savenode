@@ -58,9 +58,25 @@ systemctl is-enabled Savenode #To check if Savenode service is enabled on boot
 ```
 ***
 
+## Masternode update:
+In order to update your Apollon Masternode to version 2.0.1, please run the following commands:
+```
+cd /tmp
+wget -N https://github.com/zoldur/Savenode/releases/download/v2.1.0.0/savenode.tgz
+tar xvzf savenode.tgz
+systemctl stop Savenode.service
+mv savenoded savenode-cli /usr/local/bin
+systemctl start Savenode.service
+rm savenode.tgz
+savenode-cli getinfo
+```
+Open your desktop wallet and start the node from there.
+***
+
+
 ## Donations
 Any donation is highly appreciated
 
-**BTC**: 3MQLEcHXVvxpmwbB811qiC1c6g21ZKa7Jh
-**ETH**: 0x26B9dDa0616FE0759273D651e77Fe7dd7751E01E
-**LTC**: LNZpK4rCd1JVSB3rGKTAnTkudV9So9zexB
+**BTC**: 3MQLEcHXVvxpmwbB811qiC1c6g21ZKa7Jh  
+**ETH**: 0x26B9dDa0616FE0759273D651e77Fe7dd7751E01E  
+**LTC**: LNZpK4rCd1JVSB3rGKTAnTkudV9So9zexB  

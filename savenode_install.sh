@@ -6,7 +6,7 @@ CONFIGFOLDER='/root/.savenode'
 COIN_DAEMON='savenoded'
 COIN_CLI='savenode-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/zoldur/Savenode/releases/download/v2.0.0.0/savenode.tgz'
+COIN_TGZ='https://github.com/zoldur/Savenode/releases/download/v2.1.0.0/savenode.tgz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Savenode'
 COIN_PORT=29711
@@ -121,7 +121,6 @@ maxconnections=16
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
-addnode=149.28.146.108
 EOF
 }
 
