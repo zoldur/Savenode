@@ -1,5 +1,6 @@
 # Savenode Coin
-Shell script to install a [Savenode Masternode](https://savenode.io/) on a Linux server running Ubuntu 16.04.
+Shell script to install or update a[Savenode Masternode](https://savenode.io/) on a Linux server running Ubuntu 16.04.
+This script will install or update an existing **SNO** node to version 3.
 ***
 
 ## VPS installation
@@ -57,22 +58,6 @@ systemctl stop Savenode #To stop Savenode service
 systemctl is-enabled Savenode #To check if Savenode service is enabled on boot
 ```
 ***
-
-## Masternode update:
-In order to update your Apollon Masternode to version 2.1.1, please run the following commands:
-```
-cd /tmp
-wget -N https://github.com/zoldur/Savenode/releases/download/v2.1.1.0/savenode.tar.gz
-tar xvzf savenode.tar.gz
-systemctl stop Savenode.service
-mv savenoded savenode-cli /usr/local/bin
-systemctl start Savenode.service
-rm savenode.tar.gz
-savenode-cli getinfo
-```
-Open your desktop wallet and start the node from there.
-***
-
 
 ## Donations
 Any donation is highly appreciated
