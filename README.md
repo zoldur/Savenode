@@ -1,5 +1,5 @@
 # Savenode Coin
-Shell script to install or update a[Savenode Masternode](https://savenode.io/) on a Linux server running Ubuntu 16.04.
+Shell script to install or update [Savenode Masternode](https://savenode.io/) on a Linux server running Ubuntu 16.04.
 This script will install or update an existing **SNO** node to version 3.
 ***
 
