@@ -59,6 +59,10 @@ systemctl is-enabled Savenode #To check if Savenode service is enabled on boot
 ```
 ***
 
+## Limitations:
+If you are running multiple **SNO nodes** on a server, make sure you stop all of them before updating.
+***
+
 ## Donations
 Any donation is highly appreciated
 
