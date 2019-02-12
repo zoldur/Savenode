@@ -6,12 +6,12 @@ CONFIGFOLDER='/root/.savenode'
 COIN_DAEMON='savenoded'
 COIN_CLI='savenode-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/zoldur/Savenode/releases/download/v3.0.0.0/savenode.tar.gz'
+COIN_TGZ='https://github.com/savenode/SaveNodeCore/releases/download/V3.1/daemon.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Savenode'
 COIN_PORT=29711
 RPC_PORT=29712
-LATEST_VERSION=1020000
+LATEST_VERSION=70009
 
 NODEIP=$(curl -s4 api.ipify.org)
 
@@ -26,7 +26,7 @@ function update_node() {
   sleep 3
   systemctl start $COIN_NAME.service >/dev/null 2>&1
   apt -y install jq >/dev/null 2>&1
-  VERSION=$($COIN_PATH$COIN_CLI getinfo 2>/dev/null| jq .version)
+  VERSION=$($COIN_PATH$COIN_CLI getinfo 2>/dev/null| jq .protocolversion)
   if [[ "$VERSION" -eq "$LATEST_VERSION" ]]
   then
     echo -e "${RED}$COIN_NAME${NC} is already installed and running the lastest version."
@@ -54,7 +54,9 @@ function download_node() {
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
   compile_error
-  tar xvzf $COIN_ZIP -C $COIN_PATH
+  unzip -x $COIN_ZIP >/dev/null 2>&1
+  chmod +x $COIN_DAEMON $COIN_CLI >/dev/null 2>&1
+  cp $COIN_DAEMON $COIN_CLI $COIN_PATH >/dev/null 2>&1
   cd - >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
   clear
@@ -149,14 +151,10 @@ maxconnections=16
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
-addnode=149.28.146.108
-addnode=45.32.44.183:29711
-addnode=45.32.62.131:29711
-addnode=80.211.76.242
-addnode=108.61.165.91
-addnode=207.148.70.199:29711
-addnode=198.13.57.99:29711
-addnode=45.32.13.117:29711
+
+#Nodes
+addnode=217.61.1.171
+addnode=80.211.85.82
 EOF
 }
 
